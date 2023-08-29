@@ -70,3 +70,33 @@ fetch('https://jsonplaceholder.typicode.com/todos')
 //     Сделать GET запрос с помощью fetch() по адресу
 
 // https://jsonplaceholder.typicode.com/posts
+
+
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then(posts => {
+        console.log(posts); //json
+    })
+    .catch(error => console.error('Ошибка получения данных:', error));
+
+
+
+// 3
+
+let post = {
+    title: 'new',
+    section: 'sport'
+};
+
+fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify(post),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(newPost => {
+        console.log('New Post:', newPost);
+    })
+    .catch(error => console.error('Error posting data:', error));
